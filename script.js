@@ -6,73 +6,73 @@ const reasons = [
         number: 1,
         title:  "Your Beautiful Smile",
         text: "Your smile lights up my entire world.  Every time you smile, my heart skips a beat and everything feels right.",
-        icon: "😊"
+        icon: "💕"
     },
     {
         number: 2,
         title: "Your Kind Heart",
         text: "You have the most beautiful heart.  The way you care for others and show compassion makes me fall in love with you more each day.",
-        icon: "❤️"
+        icon: "💕"
     },
     {
         number: 3,
         title: "Your Laugh",
         text: "Your laugh is my favorite sound in the universe. It's contagious, genuine, and makes every moment brighter.",
-        icon: "😂"
+        icon: "💕"
     },
     {
         number: 4,
         title: "How You Support Me",
         text: "You're always there for me, cheering me on and believing in me even when I doubt myself. You're my biggest supporter.",
-        icon: "💪"
+        icon: "💕"
     },
     {
         number: 5,
         title: "Your Intelligence",
         text: "I love how smart and curious you are. Our conversations never get boring, and you always teach me something new.",
-        icon: "🧠"
+        icon: "💕"
     },
     {
         number: 6,
         title: "The Way You Look at Me",
         text: "The way you look at me makes me feel like I'm the most important person in the world. Your eyes tell me everything.",
-        icon: "👀"
+        icon: "💕"
     },
     {
         number: 7,
         title: "Your Sense of Humor",
         text: "You make me laugh until my stomach hurts. Your sense of humor is perfect, and you can turn any bad day into a good one.",
-        icon: "🤣"
+        icon: "💕"
     },
     {
         number: 8,
         title: "Your Dreams & Ambitions",
         text: "I love how passionate you are about your dreams.  Watching you work towards your goals inspires me every single day.",
-        icon: "⭐"
+        icon: "💕"
     },
     {
         number: 9,
         title: "How You Make Me Better",
         text: "You bring out the best version of me. With you, I want to be better, do better, and love better.",
-        icon: "🌟"
+        icon: "💕"
     },
     {
         number: 10,
-        title: "Your Hugs",
-        text: "Your hugs feel like home. In your arms, I feel safe, loved, and like everything is going to be okay.",
-        icon: "🤗"
+        title: "Your Voice",
+        text: "Your voice feels like home. When I hear your voice, I feel safe, loved, and like everything is going to be okay.",
+        icon: "💕"
     },
     {
         number: 11,
         title:  "How You Understand Me",
         text: "You get me in ways no one else does. You understand my quirks, my silences, and my unspoken words.",
-        icon: "💭"
+        icon: "💕"
     },
     {
         number: 12,
         title: "Your Beautiful Soul",
         text: "Beyond your beautiful exterior is an even more beautiful soul. You're genuine, authentic, and truly special.",
-        icon: "✨"
+        icon: "💕"
     },
     {
         number: 13,
@@ -251,7 +251,7 @@ function initParticles() {
 
     const particles = [];
     const particleCount = 50;
-    const hearts = ['❤️', '💕', '💖', '💗', '⭐', '✨'];
+    const hearts = ['❤️', '💕', '💖', '💗', '⭐', '✨', '😻', '😽'];
 
     class Particle {
         constructor() {
