@@ -92,9 +92,9 @@ const playlist = [
         path: "/music/Every Way.mp3" // Add your music files
     },
     {
-        name: "Perfect",
-        artist: "Ed Sheeran",
-        path: "./music/perfect.mp3"
+        name: "Strawberry Swing",
+        artist: "Coldplay",
+        path: "/music/Strawberry Swing.mp3"
     },
     {
         name: "All of Me",
