@@ -1,23 +1,23 @@
 // ============================================
-// DATA:  13 Reasons Why I Love You
+// DATA:   13 Reasons Why I Love You
 // ============================================
 const reasons = [
     {
         number: 1,
-        title:  "Your Beautiful Smile",
-        text: "Your smile lights up my entire world.  Every time you smile, my heart skips a beat and everything feels right.",
+        title:   "Your Beautiful Smile",
+        text:  "Your smile lights up my entire world.   Every time you smile, my heart skips a beat and everything feels right.",
         icon: "💕"
     },
     {
         number: 2,
-        title: "Your Kind Heart",
-        text: "You have the most beautiful heart.  The way you care for others and show compassion makes me fall in love with you more each day.",
+        title:  "Your Kind Heart",
+        text: "You have the most beautiful heart.   The way you care for others and show compassion makes me fall in love with you more each day.",
         icon: "💕"
     },
     {
         number: 3,
         title: "Your Laugh",
-        text: "Your laugh is my favorite sound in the universe. It's contagious, genuine, and makes every moment brighter.",
+        text: "Your laugh is my favorite sound in the universe.  It's contagious, genuine, and makes every moment brighter.",
         icon: "💕"
     },
     {
@@ -45,27 +45,27 @@ const reasons = [
         icon: "💕"
     },
     {
-        number: 8,
+        number:  8,
         title: "Your Dreams & Ambitions",
-        text: "I love how passionate you are about your dreams.  Watching you work towards your goals inspires me every single day.",
+        text: "I love how passionate you are about your dreams.   Watching you work towards your goals inspires me every single day.",
         icon: "💕"
     },
     {
         number: 9,
         title: "How You Make Me Better",
-        text: "You bring out the best version of me. With you, I want to be better, do better, and love better.",
+        text: "You bring out the best version of me.  With you, I want to be better, do better, and love better.",
         icon: "💕"
     },
     {
         number: 10,
         title: "Your Voice",
-        text: "Your voice feels like home. When I hear your voice, I feel safe, loved, and like everything is going to be okay.",
+        text: "Your voice feels like home.  When I hear your voice, I feel safe, loved, and like everything is going to be okay.",
         icon: "💕"
     },
     {
-        number: 11,
-        title:  "How You Understand Me",
-        text: "You get me in ways no one else does. You understand my quirks, my silences, and my unspoken words.",
+        number:  11,
+        title:   "How You Understand Me",
+        text: "You get me in ways no one else does.  You understand my quirks, my silences, and my unspoken words.",
         icon: "💕"
     },
     {
@@ -77,7 +77,7 @@ const reasons = [
     {
         number: 13,
         title: "You're Simply YOU",
-        text: "I love you for being exactly who you are. Every little thing about you makes you perfect in my eyes.  You're my everything.",
+        text: "I love you for being exactly who you are.  Every little thing about you makes you perfect in my eyes.   You're my everything.",
         icon: "💕"
     }
 ];
@@ -89,7 +89,7 @@ const playlist = [
     {
         name: "Every Way",
         artist: "Rex Orange County",
-        path: "./music/Every Way.mp3" // Add your music files
+        path: "./music/Every Way.mp3"
     },
     {
         name: "Strawberry Swing",
@@ -132,6 +132,8 @@ const trackName = document.getElementById('trackName');
 const trackArtist = document.getElementById('trackArtist');
 const visualizerCanvas = document.getElementById('visualizer');
 const particlesCanvas = document.getElementById('particlesCanvas');
+const collapseBtn = document.getElementById('collapseBtn');
+const musicPlayer = document.getElementById('musicPlayer');
 
 // ============================================
 // INITIALIZATION
@@ -143,6 +145,11 @@ window.addEventListener('load', () => {
         generateCards();
         loadTrack(currentTrackIndex);
         setupEventListeners();
+        
+        // Restore music player state
+        if (localStorage.getItem('musicPlayerCollapsed') === 'true') {
+            musicPlayer.classList.add('collapsed');
+        }
     }, 2000);
 });
 
@@ -172,7 +179,7 @@ function generateCards() {
         `;
         
         card.addEventListener('click', () => flipCard(card, index));
-        cardsGrid.appendChild(card);
+        cardsGrid. appendChild(card);
     });
 }
 
@@ -194,7 +201,7 @@ function flipCard(card, index) {
 }
 
 function updateProgress() {
-    const progress = (flippedCards.size / reasons.length) * 100;
+    const progress = (flippedCards.size / reasons. length) * 100;
     progressBar.style.width = `${progress}%`;
     progressText.textContent = `${flippedCards.size}/13 reasons discovered`;
 }
@@ -204,6 +211,12 @@ function checkCompletion() {
         setTimeout(() => {
             completionMessage.classList.add('show');
             launchConfetti();
+            
+            // Auto-collapse music player on mobile when completion message shows
+            if (window.innerWidth <= 768) {
+                musicPlayer.classList.add('collapsed');
+                localStorage.setItem('musicPlayerCollapsed', 'true');
+            }
         }, 500);
     } else {
         completionMessage.classList.remove('show');
@@ -224,7 +237,7 @@ function launchConfetti() {
             particleCount: 3,
             angle: 60,
             spread: 55,
-            origin: { x: 0 },
+            origin: { x:  0 },
             colors: colors
         });
         confetti({
@@ -323,12 +336,14 @@ function togglePlayPause() {
         audioPlayer.pause();
         playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
         isPlaying = false;
+        musicPlayer.classList.remove('playing');
     } else {
-        audioPlayer. play().catch(() => {
+        audioPlayer.play().catch(() => {
             console.log('Audio playback requires user interaction');
         });
         playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
         isPlaying = true;
+        musicPlayer. classList.add('playing');
         if (! audioContext) {
             setupVisualizer();
         }
@@ -356,7 +371,7 @@ function setupVisualizer() {
     analyser = audioContext.createAnalyser();
     const source = audioContext.createMediaElementSource(audioPlayer);
     source.connect(analyser);
-    analyser.connect(audioContext.destination);
+    analyser.connect(audioContext. destination);
     analyser.fftSize = 64;
     
     const bufferLength = analyser.frequencyBinCount;
@@ -375,7 +390,7 @@ function drawVisualizer() {
         analyser.getByteFrequencyData(dataArray);
 
         canvasCtx.fillStyle = isDarkMode ? '#2d2d44' : '#ffffff';
-        canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+        canvasCtx. fillRect(0, 0, WIDTH, HEIGHT);
 
         const barWidth = (WIDTH / dataArray.length) * 2;
         let x = 0;
@@ -385,7 +400,7 @@ function drawVisualizer() {
             
             const gradient = canvasCtx.createLinearGradient(0, HEIGHT - barHeight, 0, HEIGHT);
             gradient.addColorStop(0, '#ffb6b9');
-            gradient. addColorStop(1, '#cdb4db');
+            gradient.addColorStop(1, '#cdb4db');
             
             canvasCtx.fillStyle = gradient;
             canvasCtx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
@@ -398,13 +413,28 @@ function drawVisualizer() {
 }
 
 // ============================================
+// MUSIC PLAYER COLLAPSE TOGGLE
+// ============================================
+function toggleMusicPlayer() {
+    musicPlayer.classList.toggle('collapsed');
+    
+    // Save state to localStorage
+    const isCollapsed = musicPlayer.classList. contains('collapsed');
+    localStorage.setItem('musicPlayerCollapsed', isCollapsed);
+    
+    // Update aria-label for accessibility
+    const state = isCollapsed ? 'collapsed' : 'expanded';
+    collapseBtn.setAttribute('aria-label', `Music player ${state}.  Click to ${isCollapsed ? 'expand' : 'collapse'}`);
+}
+
+// ============================================
 // THEME TOGGLE
 // ============================================
 function toggleTheme() {
     isDarkMode = !isDarkMode;
     document.body.classList.toggle('dark');
     themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    localStorage. setItem('theme', isDarkMode ? 'dark' : 'light');
 }
 
 // Check saved theme
@@ -417,9 +447,9 @@ if (localStorage.getItem('theme') === 'dark') {
 // ============================================
 function toggleMusic() {
     isMusicEnabled = !isMusicEnabled;
-    musicToggle.classList.toggle('active');
+    musicToggle.classList. toggle('active');
     
-    if (isMusicEnabled && !isPlaying) {
+    if (isMusicEnabled && ! isPlaying) {
         togglePlayPause();
     } else if (!isMusicEnabled && isPlaying) {
         togglePlayPause();
@@ -436,7 +466,7 @@ function takeScreenshot() {
     }).then(canvas => {
         const link = document.createElement('a');
         link.download = '13-reasons-i-love-you.png';
-        link.href = canvas.toDataURL();
+        link. href = canvas.toDataURL();
         link.click();
     });
 }
@@ -448,9 +478,14 @@ function setupEventListeners() {
     themeToggle.addEventListener('click', toggleTheme);
     musicToggle.addEventListener('click', toggleMusic);
     screenshotBtn. addEventListener('click', takeScreenshot);
-    playPauseBtn.addEventListener('click', togglePlayPause);
+    playPauseBtn. addEventListener('click', togglePlayPause);
     nextBtn.addEventListener('click', nextTrack);
     prevBtn.addEventListener('click', prevTrack);
+    
+    // ADD COLLAPSE BUTTON LISTENER
+    if (collapseBtn) {
+        collapseBtn.addEventListener('click', toggleMusicPlayer);
+    }
     
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {

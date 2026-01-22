@@ -79,12 +79,24 @@ I love you, always and for all time, happy 13th monthsary, baby. 🤍
         </div>
     </main>
 
-    <!-- Music Player -->
-    <div class="music-player" id="musicPlayer">
+   <!-- Music Player -->
+<div class="music-player" id="musicPlayer">
+    <button class="collapse-btn" id="collapseBtn" aria-label="Toggle music player">
+        <i class="fas fa-chevron-down chevron-icon"></i>
+        <i class="fas fa-music music-icon"></i>
+    </button>
+    
+    <div class="player-content" id="playerContent">
         <div class="music-controls">
-            <button class="control-btn" id="prevBtn"><i class="fas fa-backward"></i></button>
-            <button class="control-btn play-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
-            <button class="control-btn" id="nextBtn"><i class="fas fa-forward"></i></button>
+            <button class="control-btn" id="prevBtn" aria-label="Previous track">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button class="control-btn play-btn" id="playPauseBtn" aria-label="Play/Pause">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="control-btn" id="nextBtn" aria-label="Next track">
+                <i class="fas fa-forward"></i>
+            </button>
         </div>
         <div class="track-info">
             <p class="track-name" id="trackName">Romantic Music</p>
@@ -92,6 +104,7 @@ I love you, always and for all time, happy 13th monthsary, baby. 🤍
         </div>
         <canvas id="visualizer"></canvas>
     </div>
+</div>
 
     <!-- Confetti Container -->
     <div class="confetti-container" id="confettiContainer"></div>
