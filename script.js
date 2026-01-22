@@ -89,17 +89,17 @@ const playlist = [
     {
         name: "Every Way",
         artist: "Rex Orange County",
-        path: "/music/Every Way.mp3" // Add your music files
+        path: "./music/Every Way.mp3" // Add your music files
     },
     {
         name: "Strawberry Swing",
         artist: "Coldplay",
-        path: "/music/Strawberry Swing.mp3"
+        path: "./music/Strawberry Swing.mp3"
     },
     {
         name: "Last Night on Earth",
         artist: "Green Day",
-        path: "/music/Last Night on Earth.mp3"
+        path: "./music/Last Night on Earth.mp3"
     }
 ];
 
