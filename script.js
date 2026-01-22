@@ -97,9 +97,9 @@ const playlist = [
         path: "/music/Strawberry Swing.mp3"
     },
     {
-        name: "All of Me",
-        artist: "John Legend",
-        path: "./music/all-of-me.mp3"
+        name: "Last Night on Earth",
+        artist: "Green Day",
+        path: "/music/Last Night on Earth.mp3"
     }
 ];
 
