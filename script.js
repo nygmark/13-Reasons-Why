@@ -89,7 +89,7 @@ const playlist = [
     {
         name: "Every Way",
         artist: "Rex Orange County",
-        path: "./music/every-way.mp3" // Add your music files
+        path: "/music/Every Way.mp3" // Add your music files
     },
     {
         name: "Perfect",
